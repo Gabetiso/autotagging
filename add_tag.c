@@ -14,7 +14,7 @@ void write();
 
 int i=0;
 int j=0;
-int N=4000;//エクセルの行数(3000あれば足りるかも)
+int N=4000;//エクセルの行数(3000あれば足りそう)
 char text[5000];
 char Spe[4000][100];
 char Hea[4000][100];
@@ -49,7 +49,7 @@ void speaker(){
 
   //ファイルが開けないことを表す
   if((fp=fopen("speaker.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しspe配列に保存していく。
   while(fgets(Spe[a], 256, fp) != NULL){
@@ -66,7 +66,7 @@ void hearer(){
   FILE *fq;
 
   if((fq=fopen("hearer.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しhea配列に保存していく
   while(fgets(Hea[b], 256, fq) != NULL){
@@ -83,7 +83,7 @@ void Srelation(){
   FILE *ft;
 
   if((ft=fopen("S-relation.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しSre配列に保存していく。
   while(fgets(Sre[c], 256, ft) != NULL){
@@ -99,7 +99,7 @@ void Hrelation(){
   FILE *fu;
 
   if((fu=fopen("H-relation.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しHre配列に保存していく。
   while(fgets(Hre[d], 256, fu) != NULL){
@@ -115,7 +115,7 @@ void Sgender(){
   FILE *fv;
 
   if((fv=fopen("S-gender.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しSge配列に保存していく。
   while(fgets(Sge[e], 256, fv) != NULL){
@@ -131,7 +131,7 @@ void Hgender(){
   FILE *fw;
 
   if((fw=fopen("H-gender.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しHge配列に保存していく。
   while(fgets(Hge[f], 256, fw) != NULL){
@@ -147,7 +147,7 @@ void Sstatus(){
   FILE *fx;
 
   if((fx=fopen("S-status.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しSst配列に保存していく。
   while(fgets(Sst[g], 256, fx) != NULL){
@@ -163,7 +163,7 @@ void Hstatus(){
   FILE *fy;
 
   if((fy=fopen("H-status.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しHst配列に保存していく。
   while(fgets(Hst[h], 256, fy) != NULL){
@@ -184,7 +184,7 @@ void write(){
   i=0;
   j=0;
   if((fs=fopen("context.txt","r"))==NULL){
-    printf("Can't open¥n");
+    printf("Can't open\n");
   }
   //一行ずつ読み出しtext配列に保存していく。
   while(fgets(text, 5000, fs) != NULL){

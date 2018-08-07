@@ -14,6 +14,7 @@ void write();
 
 int i=0;
 int j=0;
+int M=250;//fgetsで読み取れる文字数
 int N=4000;//エクセルの行数(3000あれば足りそう)
 char text[5000];
 char Spe[4000][100];
@@ -45,144 +46,146 @@ int main(void)
 
 void speaker(){
   int a=0;
-  FILE *fp;
+  FILE *fa;//ファイルポインタの作成
 
   //ファイルが開けないことを表す
-  if((fp=fopen("speaker.txt","r"))==NULL){
+  if((fa=fopen("speaker.txt","r"))==NULL){
     printf("Can't open\n");
   }
-  //一行ずつ読み出しspe配列に保存していく。
-  while(fgets(Spe[a], 256, fp) != NULL){
-    strtok(Spe[a],"\r\n");//配列の最後に付加する改行をやめさせる
+  //fgetsで一行ずつ読み出しSpe配列に保存していく。(M-1)文字まで読み込める
+  while(fgets(Spe[a], M, fa) != NULL){
+    strtok(Spe[a],"\r\n");//配列の最後に付加する改行をやめさせる(Oxygenの都合上)
     a++;
   }
-  fclose(fp);
+  fclose(fa);
   a=0;
 }
 
 
 void hearer(){
   int b=0;
-  FILE *fq;
+  FILE *fb;
 
-  if((fq=fopen("hearer.txt","r"))==NULL){
+  if((fb=fopen("hearer.txt","r"))==NULL){
     printf("Can't open\n");
   }
-  //一行ずつ読み出しhea配列に保存していく
-  while(fgets(Hea[b], 256, fq) != NULL){
+  //一行ずつ読み出してHea配列に保存してい
+  while(fgets(Hea[b], M, fb) != NULL){
     strtok(Hea[b],"\r\n");
     b++;
   }
-  fclose(fq);
+  fclose(fb);
   b=0;
 }
 
 
 void Srelation(){
   int c=0;
-  FILE *ft;
+  FILE *fc;
 
-  if((ft=fopen("S-relation.txt","r"))==NULL){
+  if((fc=fopen("S-relation.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しSre配列に保存していく。
-  while(fgets(Sre[c], 256, ft) != NULL){
+  while(fgets(Sre[c], M, fc) != NULL){
     strtok(Sre[c],"\r\n");
     c++;
   }
-  fclose(ft);
+  fclose(fc);
   c=0;
 }
 
 void Hrelation(){
   int d=0;
-  FILE *fu;
+  FILE *fd;
 
-  if((fu=fopen("H-relation.txt","r"))==NULL){
+  if((fd=fopen("H-relation.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しHre配列に保存していく。
-  while(fgets(Hre[d], 256, fu) != NULL){
+  while(fgets(Hre[d], M, fd) != NULL){
     strtok(Hre[d],"\r\n");
     d++;
   }
-  fclose(fu);
+  fclose(fd);
   d=0;
 }
 
 void Sgender(){
   int e=0;
-  FILE *fv;
+  FILE *fe;
 
-  if((fv=fopen("S-gender.txt","r"))==NULL){
+  if((fe=fopen("S-gender.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しSge配列に保存していく。
-  while(fgets(Sge[e], 256, fv) != NULL){
+  while(fgets(Sge[e], M, fe) != NULL){
     strtok(Sge[e],"\r\n");
     e++;
   }
-  fclose(fv);
+  fclose(fe);
   e=0;
 }
 
 void Hgender(){
   int f=0;
-  FILE *fw;
+  FILE *ff;
 
-  if((fw=fopen("H-gender.txt","r"))==NULL){
+  if((ff=fopen("H-gender.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しHge配列に保存していく。
-  while(fgets(Hge[f], 256, fw) != NULL){
+  while(fgets(Hge[f], M, ff) != NULL){
     strtok(Hge[f],"\r\n");
     f++;
   }
-  fclose(fw);
+  fclose(ff);
   f=0;
 }
 
 void Sstatus(){
   int g=0;
-  FILE *fx;
+  FILE *fg;
 
-  if((fx=fopen("S-status.txt","r"))==NULL){
+  if((fg=fopen("S-status.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しSst配列に保存していく。
-  while(fgets(Sst[g], 256, fx) != NULL){
+  while(fgets(Sst[g], M, fg) != NULL){
     strtok(Sst[g],"\r\n");
     g++;
   }
-  fclose(fx);
+  fclose(fg);
   g=0;
 }
 
 void Hstatus(){
   int h=0;
-  FILE *fy;
+  FILE *fh;
 
-  if((fy=fopen("H-status.txt","r"))==NULL){
+  if((fh=fopen("H-status.txt","r"))==NULL){
     printf("Can't open\n");
   }
   //一行ずつ読み出しHst配列に保存していく。
-  while(fgets(Hst[h], 256, fy) != NULL){
+  while(fgets(Hst[h], M, fh) != NULL){
     strtok(Hst[h],"\r\n");
     h++;
   }
-  fclose(fy);
+  fclose(fh);
   h=0;
 }
 
-
+//記述部分
 void write(){
+  i=0;
+  j=0;
   FILE *fr;
   FILE *fs;
   char *p;
 
-  fr = fopen("Writing.txt","wt");//wtにしないと\nで改行してくれない
-  i=0;
-  j=0;
+  //Writing.txtは出力ファイル名になる
+  fr = fopen("Writing.txt","wt");//wtにしないと\nで改行してくれないためwtにした
+
   if((fs=fopen("context.txt","r"))==NULL){
     printf("Can't open\n");
   }

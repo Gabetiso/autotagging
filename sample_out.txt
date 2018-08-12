@@ -1,0 +1,17 @@
+    <Sptext>That last punch knocked him cold. </Sptext>
+    <Spstage>(All the stokers lower their voices and cease their admiring oaths when they see Olga and recognize her. She nods calmly from one to the other of them.)</Spstage>
+   </p>
+</sp>
+    <Spstage>(faintly)</Spstage>
+     <Sptext> No, no, Mrs. Allen, I'm sure he won't.</Sptext>
+   </p>
+</sp>
+    <Spstage>(gruffly)</Spstage>
+     <Sptext> Tush, rush, woman, is your mon daft?</Sptext>
+   </p>
+</sp>
+    <Spstage>(turning furiously)</Spstage>
+     <Sptext> Don't you Lush me, Mr. Henderson! And don't you be slingin' slurs at Mister Allen. He's a better man than you are or ever will be for all your bein' a chief engineer. He ain't daft! No, nor he ain't a sot with a bottle of whiskey at his elbow all the day, neither. </Sptext>
+    <Spstage>(Henderson nearly bursts with rage at this but makes no reply.)</Spstage>
+   </p>
+</sp>

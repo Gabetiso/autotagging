@@ -218,34 +218,35 @@ void write(){
       j=0;
       //ここまで分割処理
 
+      //その文章が"("から文字が始まっていた場合
       if(strncmp(text, "(", 1) == 0){
-        while(strcmp(x[j] , "^") != 0){  //文字列比較注意
-	         if(strcmp(x[j]," ") != 0 && strcmp(x[j],"  ")){//空白の処理
+        while(strcmp(x[j] , "^") != 0){//分割終了の楔が見つかるまで繰り返す
+	         if(strcmp(x[j]," ") != 0 && strcmp(x[j],"  ") != 0){//空白の処理(文末に" "か"  "があるときの不具合を解消)
 	            fprintf(fr,"    <Spstage>(%s)</Spstage>\n",x[j]);
 	         }
            j++;
-           if(strcmp(x[j] , "^") != 0 && strcmp(x[j]," ") != 0 && strcmp(x[j],"  ")){
+           if(strcmp(x[j] , "^") != 0 && strcmp(x[j]," ") != 0 && strcmp(x[j],"  ") != 0){
              fprintf(fr,"     <Sptext>%s</Sptext>\n",x[j]);
 	           j++;
 	         }
-         }
-       }else{
+        }
+      }else{
          while(strcmp(x[j] , "^") != 0){
-           if(strcmp(x[j]," ") != 0 && strcmp(x[j],"  ")){
+           if(strcmp(x[j]," ") != 0 && strcmp(x[j],"  ") != 0){
              fprintf(fr,"    <Sptext>%s</Sptext>\n",x[j]);
            }
            j++;
-           if(strcmp(x[j] , "^") != 0 && strcmp(x[j]," ") != 0 && strcmp(x[j],"  ")){
+           if(strcmp(x[j] , "^") != 0 && strcmp(x[j]," ") != 0 && strcmp(x[j],"  ") != 0){
              fprintf(fr,"    <Spstage>(%s)</Spstage>\n",x[j]);
              j++;
            }
          }
-       }
-       fprintf(fr,"   </p>\n</sp>\n");
-     }//elseの閉じ括弧
-     i++;
-     j=0;
-   }
-   fclose(fs);
-   fclose(fr);
+      }
+      fprintf(fr,"   </p>\n</sp>\n");
+    }//elseの閉じ括弧
+    i++;
+    j=0;
+  }
+  fclose(fs);
+  fclose(fr);
 }

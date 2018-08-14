@@ -13,14 +13,14 @@ int main(void){
   if((fp=fopen("sample_human.txt","r"))==NULL){
     printf("Can't open¥n");
   }
-  while(fgets(s1, M, fp) != NULL){//タブがnull？
+  while(fgets(s1, M, fp) != "\t"){//タブがnull？
     // タブ区切りに文字列を分割
-    p = strtok(s1, "	");
+    p = strtok(s1, "\t");
     strcpy(s2[j],p);
 
     while(p != NULL){//NULLのデータがあるのが問題
       j++;
-      p = strtok(NULL, "	");
+      p = strtok(NULL, "\t");
       if(p!=NULL){
         strcpy(s2[j],p);
       }else{
@@ -28,11 +28,11 @@ int main(void){
       }
     }
     //ここまで分割処理
-    //printf("%s",s1);
+    printf("%s",s1);
   }
-  for(j=0;j<30;j++){
-    printf("%s\n",s2[j]);
-  }
+  //for(j=0;j<35;j++){
+    //printf("%s\n",s2[j]);
+  //}
   fclose(fp);
   return 0;
 }
